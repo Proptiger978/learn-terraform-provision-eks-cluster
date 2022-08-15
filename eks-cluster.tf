@@ -19,13 +19,13 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "pravin-node-1"
+      name = "node-group-1"
 
-      instance_types = ["t2.small"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
-      max_size     = 2
-      desired_size = 1
+      max_size     = 3
+      desired_size = 2
 
       pre_bootstrap_user_data = <<-EOT
       echo 'foo bar'
@@ -37,9 +37,9 @@ module "eks" {
     }
 
     two = {
-      name = "Pravin-node-2"
+      name = "node-group-2"
 
-      instance_types = ["t2.medium"]
+      instance_types = ["t3.medium"]
 
       min_size     = 1
       max_size     = 2
